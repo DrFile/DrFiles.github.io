@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube API Example</title>
+</head>
+<body>
+
+    <div id="player"></div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        function onYouTubeIframeAPIReady() {
+            var player = new YT.Player('player', {
+                height: '315',
+                width: '560',
+                videoId: 'VIDEO_ID',
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'showinfo': 0,
+                    'rel': 0,
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+    </script>
+
+</body>
+</html>
